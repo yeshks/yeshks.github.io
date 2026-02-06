@@ -1,0 +1,753 @@
+/* ==========================================
+   Yesh Singh Portfolio - Custom Styles
+   ========================================== */
+
+/* ---------- CSS Variables (Slack Colors) ---------- */
+:root {
+    --slack-aubergine: #4A154B;
+    --slack-blue: #36C5F0;
+    --slack-green: #2EB67D;
+    --slack-yellow: #ECB22E;
+    --slack-red: #E01E5A;
+    --amazon-orange: #FF9900;
+    --amazon-dark: #232F3E;
+    --walmart-blue: #0071CE;
+    --bg-primary: #f8f9fa;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c757d;
+}
+
+/* ---------- Base Styles ---------- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ---------- Utility Classes ---------- */
+.text-aubergine { color: var(--slack-aubergine) !important; }
+.text-slack-blue { color: var(--slack-blue) !important; }
+.text-slack-green { color: var(--slack-green) !important; }
+.text-slack-yellow { color: var(--slack-yellow) !important; }
+.text-slack-red { color: var(--slack-red) !important; }
+
+.bg-slack-light { background-color: rgba(74, 21, 75, 0.1) !important; }
+.bg-amazon-light { background-color: rgba(255, 153, 0, 0.1) !important; }
+.bg-walmart-light { background-color: rgba(0, 113, 206, 0.1) !important; }
+
+/* ---------- Floating Clouds Background ---------- */
+.clouds-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(2px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 200px;
+    height: 60px;
+    top: 10%;
+    left: -200px;
+    animation: float-cloud 35s linear infinite;
+}
+.cloud-1::before { width: 100px; height: 80px; top: -40px; left: 20px; }
+.cloud-1::after { width: 120px; height: 70px; top: -30px; left: 80px; }
+
+.cloud-2 {
+    width: 150px;
+    height: 45px;
+    top: 25%;
+    left: -150px;
+    animation: float-cloud 28s linear infinite;
+    animation-delay: 5s;
+    opacity: 0.4;
+}
+.cloud-2::before { width: 70px; height: 60px; top: -35px; left: 15px; }
+.cloud-2::after { width: 90px; height: 55px; top: -25px; left: 60px; }
+
+.cloud-3 {
+    width: 180px;
+    height: 55px;
+    top: 50%;
+    left: -180px;
+    animation: float-cloud 40s linear infinite;
+    animation-delay: 12s;
+    opacity: 0.5;
+}
+.cloud-3::before { width: 90px; height: 70px; top: -35px; left: 20px; }
+.cloud-3::after { width: 100px; height: 60px; top: -25px; left: 70px; }
+
+.cloud-4 {
+    width: 120px;
+    height: 35px;
+    top: 70%;
+    left: -120px;
+    animation: float-cloud 32s linear infinite;
+    animation-delay: 8s;
+    opacity: 0.35;
+}
+.cloud-4::before { width: 55px; height: 50px; top: -30px; left: 10px; }
+.cloud-4::after { width: 70px; height: 45px; top: -20px; left: 50px; }
+
+.cloud-5 {
+    width: 160px;
+    height: 50px;
+    top: 85%;
+    left: -160px;
+    animation: float-cloud 38s linear infinite;
+    animation-delay: 18s;
+    opacity: 0.45;
+}
+.cloud-5::before { width: 80px; height: 65px; top: -35px; left: 15px; }
+.cloud-5::after { width: 95px; height: 55px; top: -25px; left: 65px; }
+
+@keyframes float-cloud {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 300px)); }
+}
+
+/* ---------- Confetti Canvas ---------- */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+    padding-top: 60px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--slack-blue), var(--slack-green), var(--slack-yellow), var(--slack-red));
+    border-radius: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-outline-primary {
+    color: var(--slack-aubergine);
+    border-color: var(--slack-aubergine);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--slack-aubergine);
+    border-color: var(--slack-aubergine);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 21, 75, 0.3);
+}
+
+/* ---------- Terminal Styling ---------- */
+.terminal {
+    max-width: 650px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-header {
+    background: linear-gradient(180deg, #3c3c3c 0%, #2d2d2d 100%);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-btn.red { background: #ff5f56; }
+.terminal-btn.yellow { background: #ffbd2e; }
+.terminal-btn.green { background: #27ca40; }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    color: #9a9a9a;
+    font-size: 13px;
+}
+
+.terminal-body {
+    padding: 15px;
+    min-height: 120px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.terminal-line {
+    color: #f8f8f2;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.prompt {
+    color: var(--slack-green);
+    margin-right: 8px;
+}
+
+.terminal-response {
+    color: #a9b7c6;
+    font-size: 13px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #333;
+    background: #252526;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8f8f2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    flex: 1;
+    caret-color: var(--slack-green);
+}
+
+.terminal-input::placeholder {
+    color: #666;
+}
+
+/* Typing animation */
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1s steps(6, end);
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--slack-aubergine);
+    display: flex;
+    align-items: center;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--slack-aubergine) 0%, transparent 100%);
+    margin-left: 15px;
+    opacity: 0.3;
+}
+
+/* ---------- Experience Cards ---------- */
+.experience-card {
+    background: var(--bg-card);
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    transition: width 0.3s ease;
+}
+
+.experience-card.slack::before { background: var(--slack-aubergine); }
+.experience-card.amazon::before { background: var(--amazon-orange); }
+.experience-card.walmart::before { background: var(--walmart-blue); }
+.experience-card.sentient::before { background: var(--slack-green); }
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card:hover::before {
+    width: 6px;
+}
+
+/* Company Logos */
+.company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.slack-bg { background: var(--slack-aubergine); color: #fff; }
+.amazon-bg { background: var(--amazon-dark); color: var(--amazon-orange); }
+.walmart-bg { background: var(--walmart-blue); color: #fff; }
+.sentient-bg { background: #e8f5e9; color: var(--slack-green); }
+
+/* Award Badge */
+.award-badge {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--slack-yellow), #f5a623);
+    color: #1a1a1a;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+/* ---------- Skill Cards ---------- */
+.skill-card {
+    background: var(--bg-card);
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 16px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: var(--slack-aubergine);
+    box-shadow: 0 4px 15px rgba(74, 21, 75, 0.1);
+}
+
+/* ---------- Education Card ---------- */
+.education-card {
+    background: var(--bg-card);
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Footer ---------- */
+.hint-text {
+    opacity: 0.5;
+    font-style: italic;
+    transition: opacity 0.3s ease;
+}
+
+.hint-text:hover {
+    opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .hero { padding-top: 40px; }
+    .terminal { margin: 0 -15px; border-radius: 0; }
+    .experience-card { padding: 15px; }
+    .company-logo { width: 40px; height: 40px; font-size: 20px; }
+}
+
+/* ---------- Easter Egg Activated State ---------- */
+body.easter-egg-active {
+    animation: rainbow-bg 2s ease-in-out;
+}
+
+@keyframes rainbow-bg {
+    0% { background: var(--bg-primary); }
+    25% { background: rgba(54, 197, 240, 0.1); }
+    50% { background: rgba(46, 182, 125, 0.1); }
+    75% { background: rgba(236, 178, 46, 0.1); }
+    100% { background: var(--bg-primary); }
+}
+
+/* ---------- Terminal Backdrop ---------- */
+.terminal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 999;
+    pointer-events: none;
+    transition: background 0.5s ease;
+}
+
+.terminal-backdrop.active {
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+}
+
+/* ---------- Terminal Hired State ---------- */
+.terminal {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.6s ease,
+                background 0.5s ease;
+    transform-origin: center center;
+}
+
+.terminal.terminal-hired {
+    position: relative;
+    z-index: 1000;
+    transform: scale(1.15);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    animation: terminal-glow 2s ease-in-out infinite;
+}
+
+@keyframes terminal-glow {
+    0%, 100% { box-shadow: 0 20px 60px rgba(46, 182, 125, 0.4); }
+    50% { box-shadow: 0 25px 80px rgba(46, 182, 125, 0.6); }
+}
+
+.terminal-hired .terminal-header {
+    background: linear-gradient(180deg, #2EB67D 0%, #25a06d 100%);
+}
+
+.terminal-hired .terminal-body {
+    min-height: auto;
+    max-height: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.hire-animation {
+    text-align: center;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checkmark-circle {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+}
+
+.checkmark-circle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.checkmark-path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: checkmark-draw 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes checkmark-draw {
+    to { stroke-dashoffset: 0; }
+}
+
+.hire-title {
+    color: #2EB67D;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 0 20px rgba(46, 182, 125, 0.5);
+}
+
+.hire-subtitle {
+    color: #a9b7c6;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.hire-details {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.hire-details p {
+    color: #a9b7c6;
+    font-size: 0.85rem;
+    margin: 5px 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.hire-details strong {
+    color: #ECB22E;
+}
+
+.hire-contact p {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.hire-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--slack-aubergine), #6b2c6b);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hire-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(74, 21, 75, 0.4);
+    color: #fff;
+}
+
+.reset-terminal {
+    display: block;
+    margin: 20px auto 0;
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-terminal:hover {
+    border-color: #666;
+    color: #aaa;
+}
+
+/* ---------- Photo Emoji Easter Egg ---------- */
+.photo-emoji {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.photo-emoji:hover {
+    transform: scale(1.2);
+}
+
+.dog-emoji {
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.dog-emoji:hover {
+    transform: scale(1.3) rotate(-10deg);
+}
+
+.photo-emoji.wiggle {
+    animation: emoji-wiggle 0.3s ease;
+}
+
+.photo-emoji.explode {
+    animation: emoji-explode 0.5s ease forwards;
+}
+
+@keyframes emoji-wiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-15deg) scale(1.1); }
+    75% { transform: rotate(15deg) scale(1.1); }
+}
+
+@keyframes emoji-explode {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(2); opacity: 0.8; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* ---------- Photo Carousel Modal ---------- */
+.photo-carousel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.photo-carousel-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10001;
+}
+
+.carousel-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 30px;
+}
+
+.carousel-next {
+    right: 30px;
+}
+
+.carousel-content {
+    max-width: 90%;
+    max-height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-image {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-image.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.carousel-counter {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Responsive carousel */
+@media (max-width: 768px) {
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .carousel-prev {
+        left: 10px;
+    }
+
+    .carousel-next {
+        right: 10px;
+    }
+
+    .carousel-close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}

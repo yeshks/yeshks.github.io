@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yesh Singh | Senior Software Engineer</title>
+    <meta name="description" content="Senior Software Engineer at Slack, building AI infrastructure and developer tools.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Floating Clouds Background -->
+    <div class="clouds-container">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        <div class="cloud cloud-5"></div>
+    </div>
+
+    <!-- Confetti Canvas (for easter egg) -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Terminal Backdrop (for modal effect) -->
+    <div class="terminal-backdrop" id="terminal-backdrop"></div>
+
+    <div class="container py-5">
+        <!-- Hero Section -->
+        <section class="hero text-center mb-5">
+            <h1 class="display-4 fw-bold text-aubergine">Hey, I'm Yesh 👋</h1>
+            <p class="lead text-muted mb-4">Senior Software Engineer crafting developer tools & AI infrastructure</p>
+
+            <!-- Social Links -->
+            <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+                <a href="./Yesh_Resume.pdf" target="_blank" class="btn btn-outline-primary">
+                    <i class="fas fa-file-pdf me-2"></i>Resume
+                </a>
+                <a href="https://linkedin.com/in/yeshks" target="_blank" class="btn btn-outline-primary">
+                    <i class="fab fa-linkedin me-2"></i>LinkedIn
+                </a>
+                <a href="https://github.com/yeshks" target="_blank" class="btn btn-outline-primary">
+                    <i class="fab fa-github me-2"></i>GitHub
+                </a>
+                <a href="mailto:yeshkumar95@gmail.com" class="btn btn-outline-primary">
+                    <i class="fas fa-envelope me-2"></i>Email
+                </a>
+            </div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section class="mb-5">
+            <div class="terminal mx-auto">
+                <div class="terminal-header">
+                    <span class="terminal-btn red"></span>
+                    <span class="terminal-btn yellow"></span>
+                    <span class="terminal-btn green"></span>
+                    <span class="terminal-title">yesh@portfolio ~ </span>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> <span class="typing" id="initial-command">whoami</span>
+                    </div>
+                    <div class="terminal-response" id="initial-response"></div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="prompt">$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" placeholder="type 'help' for commands..." autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="mb-5">
+            <h2 class="section-title mb-4">
+                <i class="fas fa-briefcase me-2"></i>Experience
+            </h2>
+
+            <div class="row g-4">
+                <!-- Slack -->
+                <div class="col-12">
+                    <div class="experience-card slack">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="company-logo slack-bg">
+                                <i class="fab fa-slack"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                    <div>
+                                        <h5 class="mb-1 fw-semibold">Slack</h5>
+                                        <p class="text-muted mb-1">Senior Software Engineer, Platform Technical Architecture</p>
+                                    </div>
+                                    <span class="badge bg-slack-light text-dark">Sep 2025 - Present</span>
+                                </div>
+                                <ul class="mt-2 text-secondary">
+                                    <li>Leading development of Slack's <strong>MCP (Model Context Protocol)</strong> server for AI-powered integrations</li>
+                                    <li>Architecting Slack App Infrastructure improving developer experience</li>
+                                    <li>Driving partner feedback initiatives and defining technical roadmaps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amazon -->
+                <div class="col-12">
+                    <div class="experience-card amazon">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="company-logo amazon-bg">
+                                <i class="fab fa-amazon"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                    <div>
+                                        <h5 class="mb-1 fw-semibold">Amazon</h5>
+                                        <p class="text-muted mb-1">Software Development Engineer II</p>
+                                    </div>
+                                    <span class="badge bg-amazon-light text-dark">Feb 2020 - Sep 2025</span>
+                                </div>
+                                <ul class="mt-2 text-secondary">
+                                    <li>Led migration to event-driven architecture for <strong>multi-billion-dollar</strong> vendor funding</li>
+                                    <li>Architected <strong>AML/CFT compliance platform</strong> for worldwide payment entities</li>
+                                    <li>Owned end-to-end delivery of analytics, legal, tax, and SOX compliance initiatives</li>
+                                </ul>
+                                <div class="mt-2">
+                                    <span class="award-badge"><i class="fas fa-trophy me-1"></i>VP Award Q3'23</span>
+                                    <span class="award-badge"><i class="fas fa-award me-1"></i>Director Recognition Q3'24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Walmart -->
+                <div class="col-12">
+                    <div class="experience-card walmart">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="company-logo walmart-bg">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                    <div>
+                                        <h5 class="mb-1 fw-semibold">Walmart</h5>
+                                        <p class="text-muted mb-1">Software Engineer III</p>
+                                    </div>
+                                    <span class="badge bg-walmart-light text-dark">Aug 2019 - Feb 2020</span>
+                                </div>
+                                <ul class="mt-2 text-secondary">
+                                    <li>Built personalized search driving <strong>$2M+ weekly revenue</strong> increase</li>
+                                    <li>Developed caching layer improving throughput by <strong>500%</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sentient Science -->
+                <div class="col-12">
+                    <div class="experience-card sentient">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="company-logo sentient-bg">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                    <div>
+                                        <h5 class="mb-1 fw-semibold">Sentient Science</h5>
+                                        <p class="text-muted mb-1">Data & Software Engineering Intern</p>
+                                    </div>
+                                    <span class="badge bg-light text-dark">Jun 2018 - Dec 2018</span>
+                                </div>
+                                <ul class="mt-2 text-secondary">
+                                    <li>Built event validation algorithm for wind turbine sensor data</li>
+                                    <li>Developed automated report generation for Data Scientists</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mb-5">
+            <h2 class="section-title mb-4">
+                <i class="fas fa-code me-2"></i>Skills
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="skill-card">
+                        <h6 class="text-aubergine mb-2"><i class="fas fa-terminal me-2"></i>Languages</h6>
+                        <p class="small text-muted mb-0 font-mono">Java, Python, TypeScript, Hack, Golang, Scala, Rust</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="skill-card">
+                        <h6 class="text-aubergine mb-2"><i class="fas fa-cloud me-2"></i>Cloud & Infra</h6>
+                        <p class="small text-muted mb-0 font-mono">AWS, Azure, Kubernetes, Terraform, Docker</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="skill-card">
+                        <h6 class="text-aubergine mb-2"><i class="fas fa-robot me-2"></i>AI & Protocols</h6>
+                        <p class="small text-muted mb-0 font-mono">MCP, LLM Tools, AI Agents, OpenAI, Claude</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="skill-card">
+                        <h6 class="text-aubergine mb-2"><i class="fas fa-sitemap me-2"></i>Practices</h6>
+                        <p class="small text-muted mb-0 font-mono">Distributed Systems, Event-Driven, System Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="mb-5">
+            <h2 class="section-title mb-4">
+                <i class="fas fa-graduation-cap me-2"></i>Education
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <i class="fas fa-university fa-2x text-slack-blue me-3"></i>
+                        <div>
+                            <h6 class="mb-1 fw-semibold">University at Buffalo</h6>
+                            <p class="small text-muted mb-0">MS Computer Science (GPA: 3.7) | 2017-2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <i class="fas fa-university fa-2x text-slack-blue me-3"></i>
+                        <div>
+                            <h6 class="mb-1 fw-semibold">K.J. Somaiya College of Engineering</h6>
+                            <p class="small text-muted mb-0">BE Computer Engineering | 2013-2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-muted py-4">
+            <p class="mb-1">
+                Built with <i class="fas fa-heart text-slack-red"></i> and vanilla code
+            </p>
+            <p class="small mb-0">
+                <a href="https://github.com/yeshks/yeshks.github.io" class="text-muted">View source</a>
+                <span class="mx-2">|</span>
+                <span class="hint-text">psst... try the Konami code</span>
+                <span class="mx-2">|</span>
+                <span class="photo-emoji" id="photo-trigger" title="Click me!">📸</span>
+                <a href="https://www.instagram.com/baloo.woofer/" target="_blank" class="dog-emoji" title="Meet Baloo!">🐕</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Photo Carousel Modal -->
+    <div class="photo-carousel-modal" id="photo-carousel">
+        <button class="carousel-close" id="carousel-close">&times;</button>
+        <button class="carousel-nav carousel-prev" id="carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-content">
+            <img src="" alt="Photo" id="carousel-image" class="carousel-image">
+            <div class="carousel-counter" id="carousel-counter">1 / 6</div>
+        </div>
+        <button class="carousel-nav carousel-next" id="carousel-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
